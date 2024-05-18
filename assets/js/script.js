@@ -16,12 +16,18 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     console.log("$gameType");
 })
-
+/**
+ * The main game "loop" is called after the script is loaded
+ * and after the users answer has been processed
+ */
 
 
 function runGame() {
+let num1 = Math.floor(Math.random() * 25 + 1);
+let num2 = Math.floor(Math.random() * 25 + 1);
 
 }
+
 
 function checkAnswer() {
 
