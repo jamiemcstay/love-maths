@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.log
             } else {
                 let gameType = this.getAttribute("data-type");
-                runGame(gameType); 
+                runGame(gameType);
 
             }
 
@@ -36,7 +36,7 @@ function runGame(gameType) {
     let num1 = Math.floor(Math.random() * 25 + 1);
     let num2 = Math.floor(Math.random() * 25 + 1);
 
-    if(gameType === "addition") {
+    if (gameType === "addition") {
         displayAdditionQuestion(num1, num2);
     } else {
         alert(`Unknown game type: ${gameType}`);
@@ -50,7 +50,23 @@ function checkAnswer() {
 
 }
 
+/**
+ * Gets the operands and the operator
+ * from the DOM, and trurn the correct answer. 
+ */
+
 function calculateCorrectAnswer() {
+
+    let operand1 = parseInt(document.getElementById('operand1').innertext);
+    let operand2 = parseInt(document.getElementById('opernand2').innerText)
+    let operator = parseInt(document.getElementById('operator').innerText)
+
+    if(operator === '+') {
+        return [operand1 + operand2, "addition"];
+    } else {
+        alert(`Unimplemented operator ${operator}`);
+        throw `Unimplemented operator ${operator}. Aborting!; 
+    }
 
 }
 
@@ -63,9 +79,9 @@ function incrementWrongAnswer() {
 }
 
 function displayAdditionQuestion(operand1, operand2) {
-    document.getElementById('operand1').textContent = operand1; 
+    document.getElementById('operand1').textContent = operand1;
     document.getElementById('operand2').textContent = operand2;
-    document.getElementById('operator').textContent = "+"; 
+    document.getElementById('operator').textContent = "+";
 
 }
 
